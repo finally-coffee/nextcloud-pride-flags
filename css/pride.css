@@ -1,0 +1,24 @@
+.files-list__row-icon .folder-icon svg {
+	fill: var(--image-background-pride-folder-gradient);
+}
+
+#app-navigation ul > li.active,
+.button-vue--vue-primary,
+.preview-card__header,
+.profile__primary-action-button,
+.app-navigation-entry.active {
+	background-image: var(--image-background-pride-button) !important;
+}
+.material-design-icon__svg,
+.checkbox-radio-switch svg {
+	fill: var(--image-background-pride-button-gradient);
+}
+
+/*
+body {
+	--image-background-pride-button: var(--image-background-pride-trans);
+	--image-background-pride-folder: var(--image-background-pride-pride);
+	--image-background-pride-button-gradient: var(--image-background-pride-gradient-pride);
+	--image-background-pride-folder-gradient: var(--image-background-pride-gradient-trans);
+}
+*/
