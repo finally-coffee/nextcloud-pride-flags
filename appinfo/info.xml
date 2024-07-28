@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+	<id>pride_flags</id>
+	<name>Pride Flags</name>
+	<summary>Allow users to theme different parts of their nextcloud with pride flags</summary>
+	<description>Allows every user to select their wanted pride flags as backgrounds for primary action buttons and folder icons in the files app.
+
+Currently supported "targets":
+- primary action buttons
+- folder icons in the files app
+
+Currently supported pride flags:
+- Original 6 color rainbow pride flag
+- Trans pride flag
+
+more flags to follow soon!</description>
+	<version>0.1.0</version>
+	<licence>cnvpl</licence>
+	<author mail="transcaffeine@finally.coffee" homepage="https://github.com/finally-coffee-nextcloud-pride-flags">transcaffeine</author>
+	<namespace>PrideFlags</namespace>
+	<category>customization</category>
+	<bugs>https://github.com/finally-coffee/nextcloud-pride-flags/issues</bugs>
+	<dependencies>
+		<nextcloud min-version="26" max-version="29"/>
+	</dependencies>
+	<settings>
+		<personal-section>OCA\PrideFlags\Settings\PersonalSection</personal-section>
+		<personal>OCA\PrideFlags\Settings\PersonalSettings</personal>
+	</settings>
+</info>

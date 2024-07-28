@@ -1,0 +1,96 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "pride_flags",
+        "version": "0.1.0",
+        "description": "Allow users to theme different parts of their nextcloud with pride flags",
+        "license": {
+            "name": "cnvpl"
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "basic_auth": {
+                "type": "http",
+                "scheme": "basic"
+            },
+            "bearer_auth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        },
+        "schemas": {
+        }
+    },
+    "paths": {
+        "/ocs/v2.php/apps/pride_flags/settings": {
+            "get": {
+                "operationId": "settings-get",
+                "summary": "Retrieves the per-user flag variant settings",
+                "tags": [
+                    "ui"
+                ],
+                "security": [
+                    {
+                        "bearer_auth": []
+                    },
+                    {
+                        "basic_auth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Data returned",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+					"folderVariant": {
+					    "type": "string"
+					},
+					"buttonVariant": {
+					    "type": "string"
+					}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+	    "post": {
+	    	"operationId": "settings-set",
+		"summary": "Set the user-defined flag variants for the current user",
+		"responses": {
+		    "200": {
+		        "description": "Settings saved",
+			"content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+					"folderVariant": {
+					    "type": "string"
+					},
+					"buttonVariant": {
+					    "type": "string"
+					}
+                                    }
+                                }
+                            }
+			}
+		    }
+		}
+	    }
+
+        }
+    },
+    "tags": []
+}
