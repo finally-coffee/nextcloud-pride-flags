@@ -7,6 +7,27 @@ const flags = [
 		id: 'trans',
 		colors: ['#55CDFC', '#F7A8B8', '#FFFFFF', '#F7A8B8', '#55CDFC'],
 		transform: 'rotate(90)'
+	}, {
+		id: 'pan',
+		colors: ['#FE218C', '#FFD800', '#21B1FF'],
+		transform: 'rotate(90)'
+	}, {
+		id: 'nonbinary',
+		colors: ['#FCF434', '#FFFFFF', '#9C59D1', '#2C2C2C'],
+		transform: 'rotate(90)'
+	}, {
+		id: 'bi',
+//		colors: ['#C42A6F', '#915392', '#1437A1'],
+		colors: ['#D60270', '#9B4F96', '#0038A8'],
+		transform: 'rotate(90)'
+	}, {
+		id: 'asexual',
+		colors: ['#000000', '#9F9F9F', '#FFFFFF', '#5E1984'],
+		transform: 'rotate(90)'
+	}, {
+		id: 'lesbian',
+		colors: ['#D52D00', '#EF7627', '#FF9A56', '#FFFFFF', '#D162A4', '#B55690', '#A30262'],
+		transform: 'rotate(90)'
 	}
 ];
 
