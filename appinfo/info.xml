@@ -13,6 +13,11 @@ Currently supported "targets":
 Currently supported pride flags:
 - Original 6 color rainbow pride flag
 - Trans pride flag
+- Pansexual pride flag
+- Non-binary pride flag
+- Bisexual pride flag
+- Asexual pride flag
+- Lesbian pride flag
 
 more flags to follow soon!</description>
 	<version>0.1.0</version>
@@ -21,6 +26,7 @@ more flags to follow soon!</description>
 	<namespace>PrideFlags</namespace>
 	<category>customization</category>
 	<bugs>https://github.com/finally-coffee/nextcloud-pride-flags/issues</bugs>
+	<screenshot>https://raw.githubusercontent.com/finally-coffee/nextcloud-pride-flags/main/img/pride_flag_variants.png</screenshot>
 	<dependencies>
 		<nextcloud min-version="26" max-version="29"/>
 	</dependencies>
