@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace OCA\PrideFlags\Settings;
 
