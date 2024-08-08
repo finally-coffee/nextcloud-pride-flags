@@ -16,20 +16,21 @@ use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
 
 class SettingsController extends Controller {
-	public function __construct($appName, IRequest $request, private AppSettings $appSettings) {
+
+	public function __construct($appName, IRequest $request, private AppSettings $appSettings, private $userId) {
 		parent::__construct($appName, $request);
 	}
 
 	#[NoAdminRequired]
 	#[NoCSRFRequired]
 	public function get(): JSONResponse {
-		return $this->makeJSONResponse(fn () => $this->appSettings->getAll());	
+		return $this->makeJSONResponse(fn () => $this->appSettings->getAll($this->userId));
 	}
 
 	#[NoAdminRequired]
 	public function set(string $folderVariant, string $buttonVariant): JSONResponse {
-		$this->appSettings->set($folderVariant, $buttonVariant);
-		return $this->makeJSONResponse(fn () => $this->appSettings->getAll());	
+		$this->appSettings->set($this->userId, $folderVariant, $buttonVariant);
+		return $this->makeJSONResponse(fn () => $this->appSettings->getAll($this->userId));
 	}
 
 	protected function makeJSONResponse(Closure $closure): JSONResponse {
