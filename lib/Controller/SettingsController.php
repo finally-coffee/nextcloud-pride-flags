@@ -14,6 +14,7 @@ use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\JSONResponse;
 use OCP\AppFramework\Http\Attribute\NoAdminRequired;
 use OCP\AppFramework\Http\Attribute\NoCSRFRequired;
+use OCP\AppFramework\Http\Attribute\AuthorizedAdminSetting;
 
 class SettingsController extends Controller {
 
@@ -31,6 +32,17 @@ class SettingsController extends Controller {
 	public function set(string $folderVariant, string $buttonVariant): JSONResponse {
 		$this->appSettings->set($this->userId, $folderVariant, $buttonVariant);
 		return $this->makeJSONResponse(fn () => $this->appSettings->getAll($this->userId));
+	}
+
+	#[AuthorizedAdminSetting]
+	public function setGlobal(string $folderVariant, string $buttonVariant): JSONResponse {
+		$this->appSettings->setGlobal($folderVariant, $buttonVariant);
+		return $this->makeJSONResponse(fn () => $this->appSettings->getGlobal());
+	}
+
+	#[NoCSRFRequired]
+	public function getGlobal(): JSONResponse {
+		return $this->makeJSONResponse(fn () => $this->appSettings->getGlobal());
 	}
 
 	protected function makeJSONResponse(Closure $closure): JSONResponse {

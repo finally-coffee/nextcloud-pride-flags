@@ -31,6 +31,8 @@ more flags to follow soon!</description>
 		<nextcloud min-version="26" max-version="29"/>
 	</dependencies>
 	<settings>
+		<admin-section>OCA\PrideFlags\Settings\AdminSection</admin-section>
+		<admin>OCA\PrideFlags\Settings\AdminSettings</admin>
 		<personal-section>OCA\PrideFlags\Settings\PersonalSection</personal-section>
 		<personal>OCA\PrideFlags\Settings\PersonalSettings</personal>
 	</settings>
