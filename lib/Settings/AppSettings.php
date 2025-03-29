@@ -18,11 +18,16 @@ class AppSettings {
 	}
 
 	public function setStringSetting($userId, string $key, string $value): void {
-		$this->config->setUserValue(AppConstants::APP_ID, $userId, $key, $value);
+		// Check for valid Variant here
+		if (AppConstants\Variants::tryFrom($value) != null) {
+			$this->config->setUserValue(AppConstants::APP_ID, $userId, $key, $value);
+		}
 	}
 
 	public function setAppStringSetting(string $key, string $value): void {
-		$this->config->setAppValue(AppConstants::APP_ID, $key, $value);
+		if (AppConstants\Variants::tryFrom($value) != null) {
+			$this->config->setAppValue(AppConstants::APP_ID, $key, $value);
+		}
 	}
 
 	public function getAll($userId): array {
