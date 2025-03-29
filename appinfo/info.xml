@@ -20,7 +20,7 @@ Currently supported pride flags:
 - Lesbian pride flag
 
 more flags to follow soon!</description>
-	<version>1.1.1</version>
+	<version>1.1.2</version>
 	<licence>gpl3</licence>
 	<author mail="transcaffeine@finally.coffee" homepage="https://github.com/finally-coffee/nextcloud-pride-flags">transcaffeine</author>
 	<namespace>PrideFlags</namespace>
