@@ -28,7 +28,7 @@ more flags to follow soon!</description>
 	<bugs>https://github.com/finally-coffee/nextcloud-pride-flags/issues</bugs>
 	<screenshot>https://raw.githubusercontent.com/finally-coffee/nextcloud-pride-flags/main/img/pride_flag_variants.png</screenshot>
 	<dependencies>
-		<nextcloud min-version="28" max-version="30"/>
+		<nextcloud min-version="29" max-version="31"/>
 	</dependencies>
 	<settings>
 		<admin-section>OCA\PrideFlags\Settings\AdminSection</admin-section>
