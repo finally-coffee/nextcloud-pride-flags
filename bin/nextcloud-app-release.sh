@@ -21,7 +21,10 @@ traperr() {
 }
 trap traperr ERR
 
-mv .git ../nextcloud-pride-flags-git
+mkdir ../nextcloud-pride-flags-tmp
+mv .git ../nextcloud-pride-flags-tmp/.git
+mv bin ../nextcloud-pride-flags-tmp/bin
+mv vendor-bin ../nextcloud-pride-flags-tmp/vendor-bin
 
 sudo docker run --hostname nc31.local \
     -e NEXTCLOUD_ADMIN_USER=admin \
@@ -41,12 +44,14 @@ sudo docker exec -it ${CONTAINER_NAME} php occ integrity:sign-app \
 sudo docker stop "${CONTAINER_NAME}"
 sudo docker rm "${CONTAINER_NAME}"
 
-mv ../nextcloud-pride-flags-git .git
+mv ../nextcloud-pride-flags-tmp/.git .git
+mv ../nextcloud-pride-flags-tmp/bin bin
+mv ../nextcloud-pride-flags-tmp/vendor-bin vendor-bin
 
 echo "App $APP_NAME signed @ ${VERSION}. Commit the appinfo/signatures.json now and press enter."
 read -p "Press Enter to continue" < /dev/tty
 
-tar --exclude-vcs -czvf "${TARBALL}" "$REPO"
+tar --exclude-vcs --exclude='./bin' --exclude='./vendor-bin' -czvf "${TARBALL}" "$REPO"
 
 # verify content
 echo "Tarball '${TARBALL}' content:"
