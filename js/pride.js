@@ -18,7 +18,6 @@
 			transform: 'rotate(90)'
 		}, {
 			id: 'bi',
-	//		colors: ['#C42A6F', '#915392', '#1437A1'],
 			colors: ['#D60270', '#9B4F96', '#0038A8'],
 			transform: 'rotate(90)'
 		}, {
@@ -64,6 +63,9 @@
 		--image-background-pride-${type}: var(--image-background-pride-${variant});
 		--image-background-pride-${type}-gradient: var(--image-background-pride-gradient-${variant});
 	`;
+	const setDisabledState = (nodes, state) => nodes.forEach(node => node.disabled = !!state);
+	const blockInputs = nodes => setDisabledState(nodes, true);
+	const blockInputs = nodes => setDisabledState(nodes, false);
 
 	flags.forEach(flag => {
 		const svg_html = makeLinearGradientSvg(flag.id, flag.colors, flag.opacity ?? '0.8', flag.transform ?? 'rotate(0)');
@@ -97,4 +99,14 @@
 			}`;
 			style_settings.textContent = rules;
 		});
+	window.pride_flags = {
+		flags,
+		"util" : {
+			"settings": {
+				blockInputs,
+				unblockInputs,
+				"_setDisabledState": setDisabledState,
+			},
+		},
+	};
 })(window);
